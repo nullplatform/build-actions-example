@@ -1,2 +1,5 @@
-# build-actions-example
-Build actions examples
+# Nullplatform CI build files example
+
+## GitHub
+
+* GitHub Actions + ECR
