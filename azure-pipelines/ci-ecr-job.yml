@@ -1,4 +1,6 @@
 variables:
+- name: npBuildStatus
+  value: 'failed'
 - group: nullplatform
 
 steps:
@@ -72,12 +74,14 @@ steps:
     docker build -t $(Asset.name) .
     docker tag $(Asset.name) $(assetTargetUrl)
     docker push $(assetTargetUrl)
+    echo "##vso[task.setvariable variable=npBuildStatus]successful"
   displayName: 'Build and push docker image'
 
 - task: NullplatformBuild@0
   inputs:
     action: update
     id: $(CreateBuild.id)
-    status: successful
+    status: $(npBuildStatus)
   name: FinalizeBuild
   displayName: "Finalize Nullplatform build"
+  condition: always()
