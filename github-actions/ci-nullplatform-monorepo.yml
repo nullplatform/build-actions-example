@@ -2,8 +2,8 @@ name: ci-nullplatform
 on:
   push:
     branches:
-      - main
       - master
+      - main
 permissions:
   id-token: write
   contents: read
