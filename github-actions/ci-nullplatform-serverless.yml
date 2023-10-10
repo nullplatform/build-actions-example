@@ -20,10 +20,6 @@ jobs:
         uses: nullplatform/github-action-setup-ci@v1
         with:
           api-key: ${{ secrets.NULLPLATFORM_API_KEY }}
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
       - name: Get build parameters
         id: get-build-parameters
         uses: nullplatform/github-action-secrets-and-variables@v1
